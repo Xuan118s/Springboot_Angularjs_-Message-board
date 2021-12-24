@@ -1,0 +1,108 @@
+	<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="//cdn.bootcss.com/angular.js/1.5.6/angular.min.js"></script>
+	</head>
+	<body ng-app="app" ng-controller="MainController"  >
+	
+	<script type="text/javascript">
+	
+	var app = angular.module('app', []);
+	app.controller('MainController', function($rootScope,$location, $scope, $http,$timeout) {
+		
+		$scope.initial=true;
+		$scope.data = {}
+		$scope.data.userName = '';
+		$scope.data.userPass = '';
+		$scope.data.RepeatPassword = '';
+		
+		$scope.opp = function() {
+		}
+	
+		$scope.register = function() {
+			$http({
+				url : '/Registercheck',
+				method : 'POST',
+				data : $scope.data
+			}).success(function(response) {
+				//刪除移除數據
+				if($scope.data.uerName=='' || $scope.data.userPass=='' || $scope.data.RepeatPassword==''){
+					$scope.initial=false;$timeout(function() { $scope.initial = true;}, 500);}
+				else{
+					if(response.checkok==1){
+						alert('用戶名已經註冊過，請重新輸入名稱!');}
+					else{
+							if($scope.data.userPass != $scope.data.RepeatPassword){
+								alert('重複密碼不一致，請重新輸入!');}
+							else{
+									$http({
+										url : '/RegisterSave',
+										method : 'POST',
+										data : $scope.data
+									}).success(function(){
+										alert('註冊成功!');
+										window.location.href="/";
+									});
+								}
+						}
+					}
+			});
+		}});
+
+	
+	</script>
+	<link rel="stylesheet" href="Register/Register.css" />
+		<div class="container">
+			<p class="heading">Register</p>
+			<form  method="post" name="RegisterCtrl" novalidate="novalidate">
+				<div  ng-class="{true:'box',false:'boxnull'}[initial]">
+				<p>名稱:</p>
+					<div>
+						<div>
+							<input type="text" name="userName" ng-model="data.userName" required="required" placeholder="名稱">
+							</input>
+						</div>
+					</div>
+
+				<p>密碼:</p>
+					<div>
+						<div>
+							<input type="text" name="userPass" ng-model="data.userPass" required="required" placeholder="密碼">
+							</input>
+						</div>
+					</div>
+
+				<p>重複密碼:</p>
+					<div>
+						<div>
+							<input type="text" name="RepeatPassword" ng-model="data.RepeatPassword" required="required" placeholder="重複密碼">
+							</input>
+						</div>
+					</div>
+				</div>
+				
+				
+				<input class="registerBtn" type="submit" value="註冊" ng-click="register()"  />
+				
+				<p  class="text">註冊完成了?   <a  class="text" href="http://localhost:8080/"  target="_parent">返回登入畫面</a></p>
+				
+			</form>
+		</div>
+	</body>
+	
+	</html>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

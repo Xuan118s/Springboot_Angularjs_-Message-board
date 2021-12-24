@@ -1,0 +1,100 @@
+	<!DOCTYPE html>
+	<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<script src="//cdn.bootcss.com/angular.js/1.5.6/angular.min.js"></script>
+	</head>
+	<body ng-app="app" ng-controller="MainController"  >
+	
+	<script type="text/javascript">
+	
+	var app = angular.module('app', []);
+	app.controller('MainController', function($window,$rootScope,$location, $scope, $http,$timeout) {
+		
+		window.history.forward(); 
+		
+		$scope.initial=true;
+		$scope.data = {}
+		$scope.data.userName = '';
+		$scope.data.userPass = '';
+		function callAtTimeout() { 
+			alert('未註冊帳號 請註冊!');
+		}
+		$scope.checknull = function(){
+			if($scope.data.userName == '' || $scope.data.userPass == ''){
+				$scope.initial=false;
+				$timeout(function() { $scope.initial = true;}, 500);
+				
+			}
+			else
+			{$http({
+				url : '/Logincheck',
+				method : 'POST',
+				data : $scope.data
+			}).success(function(response) {
+				//刪除移除數據
+				if(response.checkok==1)
+					{
+					window.sessionStorage.setItem('username',response.username);
+					window.location.href="messageboard";}
+				else
+					{alert('未註冊帳號 請註冊!');}
+			});}
+		}
+		
+			
+		
+		
+	});
+
+	
+	</script>
+	
+		
+		<link rel="stylesheet" href="Login/Login.css" />
+	
+			<div class="container">
+				<p class="heading">Login</p>
+				<form method="post" name="LoginCtrl" novalidate="novalidate">
+				<div  ng-class="{true:'box',false:'boxnull'}[initial]">
+					<p>名稱:</p>
+					<div>
+							<div>
+								<input type="text" name="userName" ng-model="data.userName" required="required" placeholder="名稱">
+								
+								</input>
+							</div>
+					</div>
+
+					<p>密碼:</p>
+						<div>
+						<label>
+							<input type="text" name="userPass" ng-model="data.userPass" required="required"  placeholder="密碼"/>
+								
+							</label>
+						</div>
+				</div>
+				<input class="loginBtn" type="submit" value="登入" ng-click="checknull()" />
+			
+				<p class="text">未註冊帳號?   <a class="text" href="http://localhost:8080/Register" target="_parent">註冊帳號</a></p>
+					
+					
+				</form>
+			</div>
+	</body>
+	
+	</html>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
