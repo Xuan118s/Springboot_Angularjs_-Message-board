@@ -297,7 +297,46 @@
 >1.用於儲存一個新的帳號
 
 </details>
+<hr>
 
-<h2>實體範例演示</h2>
-
+<h1>實體範例演示</h1>
+<h2>註冊畫面</h2>
 	
+<h3>1. 註冊帳號未輸入提醒</h3>
+	
+![image](https://github.com/Xuan118s/Springboot_Angularjs_Messageboard_2021_12_24/blob/main/GIF/%E8%A8%BB%E5%86%8A%E5%B8%B3%E8%99%9F%E7%A9%BA%E7%99%BD%E9%8C%AF%E8%AA%A4.gif)
+	
+<h3>2. 註冊密碼重複不一致提醒</h3>
+	
+![image](https://github.com/Xuan118s/Springboot_Angularjs_Messageboard_2021_12_24/blob/main/GIF/%E8%A8%BB%E5%86%8A%E5%B8%B3%E8%99%9F%E9%87%8D%E8%A4%87%E9%8C%AF%E8%AA%A4.gif)
+	
+<h3>3. 註冊成功後跳轉</h3>
+	
+	
+![image](https://github.com/Xuan118s/Springboot_Angularjs_Messageboard_2021_12_24/blob/main/GIF/%E8%A8%BB%E5%86%8A%E5%B8%B3%E8%99%9F%E6%88%90%E5%8A%9F%E8%B7%B3%E8%BD%89.gif)
+	
+<h2>登入畫面</h2>
+	
+<h3>1. 登入帳號未輸入提醒</h3>
+	
+![image](https://github.com/Xuan118s/Springboot_Angularjs_Messageboard_2021_12_24/blob/main/GIF/%E6%9C%AA%E8%BC%B8%E5%85%A5%E8%B3%87%E6%96%99%E9%8C%AF%E8%AA%A4.gif)
+	
+<h3>2. 登入帳號未註冊提示</h3>
+	
+![image](https://github.com/Xuan118s/Springboot_Angularjs_Messageboard_2021_12_24/blob/main/GIF/%E6%9C%AA%E8%A8%BB%E5%86%8A%E9%81%8E%E7%9A%84%E5%B8%B3%E8%99%9F.gif)
+
+<h3>3. 登入成功跳轉</h3>
+	
+![image](https://github.com/Xuan118s/Springboot_Angularjs_Messageboard_2021_12_24/blob/main/GIF/%E7%99%BB%E5%85%A5%E6%88%90%E5%8A%9F%E8%B7%B3%E8%BD%89.gif)
+	
+<h2>編輯畫面</h2>
+	
+<h3>1. 新增、刪除、修改資料</h3>
+	
+![image](https://github.com/Xuan118s/Springboot_Angularjs_Messageboard_2021_12_24/blob/main/GIF/%E6%96%B0%E5%A2%9E%E5%88%AA%E9%99%A4%E4%BF%AE%E6%94%B9.gif)
+	
+<h2>其他動作畫面</h2>
+
+<h3>1.登出並清除資料</h3>
+	
+![image](https://github.com/Xuan118s/Springboot_Angularjs_Messageboard_2021_12_24/blob/main/GIF/%E7%99%BB%E5%87%BA.gif)
