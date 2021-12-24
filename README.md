@@ -1,4 +1,12 @@
-# Springboot_Angularjs_Messageboard_2021_12_24
+<h1> Springboot_Angularjs_Messageboard_2021_12_24</h1>
+
+<h2>程式碼介紹</h2>
+
+>主程式main介紹
+<details>
+	<summary>MainController.java</summary>
+</details>
+
 >所有Order介紹
 <details>
 <summary>Order.java</summary>
@@ -285,5 +293,11 @@
 2.Registercheck()<br/>
 >1.用於判斷註冊時該帳號名稱是否有重複過的判斷
 
+3.Registersave()<br/>
+>1.用於儲存一個新的帳號
 
 </details>
+
+<h2>實體範例演示</h2>
+
+	
