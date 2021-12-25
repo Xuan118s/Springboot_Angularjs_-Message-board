@@ -139,6 +139,28 @@
 	}
 
 # 功用與介紹
+<h3>主畫面登入控制</h3>
+	
+@GetMapping("/")
+>初始頁面設定為登入頁面
+	
+@PostMapping("/Logincheck")
+>兩個步驟，第一步判斷帳號是否存在，第二步取名字回傳做後續資料與編輯
+
+<h3>主畫面註冊控制</h3>
+	
+@GetMapping("/Register")
+>註冊頁面跳轉路徑
+	
+@PostMapping("/Registercheck")
+>呼叫LoginDao.Registercheck並做資料庫查詢此帳號有無存在驗證
+	
+@PostMapping("/RegisterSave")
+>確認帳號與重複帳號無誤，並且Registercheck認證完成，新增該新用戶到資料庫	
+
+	
+<h3>留言板編輯與控制</h3>
+	
 @PostMapping("/save")
 >讀取一整個Map從Html上，並且執行OrderDao.update，去做資料庫裡的資料更新
 
@@ -154,7 +176,18 @@
 @PostMapping("/delete")
 >讀取單一ID從HTML，並且執行orderDao.delete，刪除指定的資料庫資料
 	
-	<hr>
+@PostMapping("/delete")
+>讀取單一ID從HTML，並且執行orderDao.delete，刪除指定的資料庫資料
+
+@GetMapping("/personaledit")
+>編輯頁面跳轉
+
+@PostMapping("/findpersonal")
+>保存成功後更新資訊
+
+@PostMapping("/findpersonaledit")
+>查詢所有有關用戶的留言資料並顯示
+<hr>
 	
 </details>
 
@@ -200,7 +233,7 @@
 # 功用與介紹
 1.定義一個public get/set(讀/寫) ，方便外部訪問<br/>
 2.所需定義值有ID(身分編號)、NAME(用戶名稱)、MESSAGE(留言訊息)、CREATE_DATE(創建留言時間)<br/>
-3. toString() 做資料庫在Java裡的列表頁印與自我檢查<br/>
+<hr>
 </details>
 
 <details>
@@ -234,6 +267,7 @@
 
 1.定義一個public get/set(讀/寫) ，方便外部訪問<br/>
 2.所需定義值有userName(登入者名稱)、userPass(登入者密碼)
+<hr>
 </details>
 
 >所有Dao介紹
@@ -366,7 +400,7 @@
 
 5.delete()
 >1.刪除指定ID的所有資料欄資料
-
+<hr>
 </details>
 	
 <details>
