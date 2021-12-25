@@ -4,6 +4,17 @@
 
 >主程式main介紹
 <details>
+	<summary>MainController的Springframework.web介紹:</summary>
+	<br>1.@Controller 最後會回到我們的Web Page頁面</br>
+	<br>2.@Autowired 可以對class成員變量、方法及構造函數進行標註，完成自動裝配的工作</br>
+	<br>3.@GetMapping 可在method層面上用作處理 http 的請求</br>
+	<br>4.@PostMapping 使用RequestMethod.POST進行註釋</br>
+	<br>5.@Responsebody 註解表示該方法的返回的結果直接寫入 HTTP 響應正文（ResponseBody）中，一般在非同步獲取資料時使用</br>
+	<br>6.@RequestBody 註解則是將 HTTP 請求正文插入方法中，使用適合的 HttpMessageConverter 將請求體寫入某個物件</br>
+	<hr>
+</details>
+
+<details>
 	<summary>MainController.java (更新代碼)</summary>
 	
 	package com.github.xuan118s.springboot_angularjs;
@@ -32,15 +43,11 @@
 		@PostMapping("/Logincheck")
 		public @ResponseBody Map<String, Object> Logincheck(@RequestBody LoginOrder loginorder) {
 			Map<String, Object> result = new HashMap<>();
-
-	//			System.out.print(loginorder.getUserName());
-	//			System.out.print(loginorder.getUserPass());
 				try {
-				result.put("checkok", loginDao.logincheck(loginorder));
-				result.put("username", loginorder.userName);}
+					result.put("checkok", loginDao.logincheck(loginorder));
+					result.put("username", loginorder.userName);}
 				catch(Exception ex) {
 					System.out.println(ex.toString());}
-
 			return result;
 		}
 
@@ -53,9 +60,6 @@
 		@PostMapping("/Registercheck")
 		public @ResponseBody Map<String, Object> Registercheck(@RequestBody LoginOrder loginorder) {
 			Map<String, Object> result = new HashMap<>();
-
-	//			System.out.print(loginorder.getUserName());
-	//			System.out.print(loginorder.getUserPass());
 				try {
 					result.put("checkok", loginDao.Registercheck(loginorder));}
 				catch(Exception ex) {
@@ -67,9 +71,7 @@
 		@PostMapping("/RegisterSave")
 		public @ResponseBody Map<String, Object> RegisterSave(@RequestBody LoginOrder loginorder) {
 			Map<String, Object> result = new HashMap<>();
-
 			loginDao.Registersave(loginorder);
-
 			return result;
 		}
 
@@ -85,9 +87,7 @@
 		@PostMapping("/save")
 		public @ResponseBody Map<String, Object> save(@RequestBody Order order) {
 			Map<String, Object> result = new HashMap<>();
-
 			orderDao.update(order);
-
 			result.put("id", order.id);
 			return result;
 		}
@@ -95,9 +95,7 @@
 		@PostMapping("/newdata")
 		public @ResponseBody Map<String, Object> newdata(@RequestBody Order order) {
 			Map<String, Object> result = new HashMap<>();
-
 			orderDao.insert(order);
-
 			result.put("id", order.id);
 			return result;
 		}
@@ -140,7 +138,24 @@
 
 	}
 
+# 功用與介紹
+@PostMapping("/save")
+>讀取一整個Map從Html上，並且執行OrderDao.update，去做資料庫裡的資料更新
 
+@PostMapping("/newdata")
+>讀取一整個Map從Html上，並且執行orderDao.insert，去做資料庫的資料新增
+
+@PostMapping("/get")
+>給予指定ID的Map從資料庫，並且執行orderDao.get，回傳給Html
+
+@PostMapping("/findAll")
+>給予全部的Map從資料庫，並且執行orderDao.findAll，回傳給Html
+
+@PostMapping("/delete")
+>讀取單一ID從HTML，並且執行orderDao.delete，刪除指定的資料庫資料
+	
+	<hr>
+	
 </details>
 
 >所有Order介紹
